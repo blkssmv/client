@@ -1,0 +1,75 @@
+.authorization{
+    display: flex;
+    height: 100vh;
+    align-items: center;
+}
+
+.authorization_content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    padding: 25px;
+}
+.authorization_info{
+    flex: 1;
+    padding: 25px;
+}
+.authorization_title{
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 58px;
+    text-transform: capitalize;
+    color: #000000;
+    margin-bottom: 48px;
+}
+
+.authorization_info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    height: 100vh;
+    background-image: url("../layouts/images/background.jpg");
+    background-size: cover;
+    border-radius: 0 0 0 45px;
+}
+.logo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 45px;
+}
+
+.logo_icon{
+    width: 200px;
+    height: 200px;
+}
+.logo_icon img{
+    width: 100%;
+    height: 100%;
+}
+.logo_name{
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 62px;
+    color: #FFFFFF;
+}
+.about{
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 23px;
+    text-align: center;
+    color: #FFFFFF;
+    max-width: 409px;
+    padding: 20px;
+    background: rgba(217, 217, 217, 0.15);
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+}
