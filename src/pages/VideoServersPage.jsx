@@ -1,7 +1,6 @@
 import Navigation from "../components/Navigation";
-import MyInput from "../components/MyInput";
 import MyButton from "../components/MyButton";
-import s from '../styles/VideoServersPage.module.css'
+import s from "../styles/VideoServersPage.module.css";
 import { useState } from "react";
 // import CreatingVideoServerModal from "../../components/modals/CreatingVideoServerModal";
 // import DeletingClientModal from "../../components/modals/DeletingVideoServerModal";
@@ -9,17 +8,18 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import DeletingModal from "../components/modals/DeletingModal";
 import EditingModal from "../components/modals/EditingModal";
+import CreatingModal from "../components/modals/CreatingModal";
+import MySearchInput from "../components/MySearchInput";
 
 const VideoServersPage = ({ videoservers }) => {
   const navigate = useNavigate();
 
-  const [isOpenDeletingModal, setIsOpenDeletingModal] = useState(false)
+  const [isOpenDeletingModal, setIsOpenDeletingModal] = useState(false);
 
-  const [isOpenCreatingVideoServerModal, setIsOpenCreatingVideoServerModal] =
+  const [isOpenCreatingModal, setIsOpenCreatingModal] =
     useState(false);
-  
-  const [isOpenEditingModal, setIsOpenEditingModal] =
-    useState(false);
+
+  const [isOpenEditingModal, setIsOpenEditingModal] = useState(false);
   return (
     <>
       <Navigation />
@@ -30,33 +30,10 @@ const VideoServersPage = ({ videoservers }) => {
           </header>
           <div className={s.forms}>
             <div className={s.searchVideoServers}>
-              <MyInput placeholder="Поиск по названию сервера">
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z"
-                    stroke="#3377FF"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                  <path
-                    d="M21 20.9999L16.65 16.6499"
-                    stroke="#3377FF"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </MyInput>
+              <MySearchInput placeholder="Поиск по названию сервера"/>
             </div>
             <div className={s.createVideoServers}>
-              <MyButton onClick={() => setIsOpenCreatingVideoServerModal(true)}>
+              <MyButton onClick={() => setIsOpenCreatingModal(true)}>
                 <span className={s.plus_icon}>
                   <svg
                     width="24"
@@ -84,9 +61,25 @@ const VideoServersPage = ({ videoservers }) => {
                 Создать видеосервер
               </MyButton>
 
-              {/* {isOpenCreatingVideoServerModal && <CreatingVideoServerModal title='Создание видеосервера' setIsOpenCreatingVideoServerModal={setIsOpenCreatingVideoServerModal}/>} */}
-                  {isOpenDeletingModal && <DeletingModal text={`Удаление видеосервера приведет к удалению всех видео в этом сервере. Вы уверены что хотите удалить клиента "${videoservers[0].name}"`} setIsOpenDeletingModal={setIsOpenDeletingModal}/>}
-                  {isOpenEditingModal && <EditingModal title="Редактирование видеосервера" setIsOpenEditingModal={setIsOpenEditingModal}/>}
+              {isOpenCreatingModal && (
+                <CreatingModal
+                  title="Создание видеосервера"
+                  setIsOpenCreatingModal={setIsOpenCreatingModal}
+                />
+              )}
+
+              {isOpenDeletingModal && (
+                <DeletingModal
+                  text={`Удаление видеосервера приведет к удалению всех видео в этом сервере. Вы уверены что хотите удалить клиента "${videoservers[0].name}"`}
+                  setIsOpenDeletingModal={setIsOpenDeletingModal}
+                />
+              )}
+              {isOpenEditingModal && (
+                <EditingModal
+                  title="Редактирование видеосервера"
+                  setIsOpenEditingModal={setIsOpenEditingModal}
+                />
+              )}
             </div>
           </div>
           <div className={s.table}>
@@ -107,9 +100,7 @@ const VideoServersPage = ({ videoservers }) => {
                   <tr key={videoserver.id}>
                     <td className={s.table_body}>{videoserver.id}</td>
                     <td
-                      onClick={() =>
-                        navigate(`/cameras`)
-                      }
+                      onClick={() => navigate(`/cameras`)}
                       className={s.table_body + " " + s.table_body_name}
                     >
                       {videoserver.name}

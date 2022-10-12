@@ -1,11 +1,11 @@
 import { useState } from "react";
 import MyButton from "../components/MyButton";
 import Navigation from "../components/Navigation";
-import MyInput from "../components/MyInput";
 import s from "../styles/CamerasPage.module.css";
 // import CreatingCameraModal from "../../components/modals/CreatingCameraModal";
 import video_test from "../layouts/videos/test_video.mp4";
 import { useNavigate } from "react-router-dom";
+import MySearchInput from "../components/MySearchInput";
 
 const CamerasPage = ({ cameras, service_packages, videoservers }) => {
   const [isOpenCreatingCameraModal, setIsOpenCreatingCameraModal] =
@@ -108,30 +108,7 @@ const CamerasPage = ({ cameras, service_packages, videoservers }) => {
           <div className={s.formsAndSort}>
             <div className={s.forms}>
               <div className={s.searchVideoServer}>
-                <MyInput placeholder="Поиск по названию">
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z"
-                      stroke="#3377FF"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                    <path
-                      d="M21 20.9999L16.65 16.6499"
-                      stroke="#3377FF"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </MyInput>
+                <MySearchInput placeholder="Поиск по названию"/>
               </div>
               <div className={s.createCamera}>
                 <MyButton onClick={() => setIsOpenCreatingCameraModal(true)}>

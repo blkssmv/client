@@ -5,6 +5,7 @@
     max-width: 379px;
     width: 100%;
     height: 42px;
+    margin-bottom: 24px;
 }
 .myInput svg{
     position: absolute;

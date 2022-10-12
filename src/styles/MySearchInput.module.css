@@ -1,0 +1,22 @@
+.myInput {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.myInput_icon{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 16px;
+}
+
+.myInput_input input{
+    padding: 0 16px 0 48px;
+    background: #F4F7FE;
+    border: 1px solid #DDE5E9;
+    border-radius: 49px;
+    height: 42px;
+}
+.myInput_input input::placeholder{
+    color: #8F9BBA;
+}
