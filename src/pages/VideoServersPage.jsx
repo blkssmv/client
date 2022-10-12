@@ -8,6 +8,7 @@ import { useState } from "react";
 // import EditingVideoServerModal from "../../components/modals/EditingVideoServerModal";
 import { useNavigate } from "react-router-dom";
 import DeletingModal from "../components/modals/DeletingModal";
+import EditingModal from "../components/modals/EditingModal";
 
 const VideoServersPage = ({ videoservers }) => {
   const navigate = useNavigate();
@@ -17,7 +18,7 @@ const VideoServersPage = ({ videoservers }) => {
   const [isOpenCreatingVideoServerModal, setIsOpenCreatingVideoServerModal] =
     useState(false);
   
-  const [isOpenEditingVideoServerModal, setIsOpenEditingVideoServerModal] =
+  const [isOpenEditingModal, setIsOpenEditingModal] =
     useState(false);
   return (
     <>
@@ -85,7 +86,7 @@ const VideoServersPage = ({ videoservers }) => {
 
               {/* {isOpenCreatingVideoServerModal && <CreatingVideoServerModal title='Создание видеосервера' setIsOpenCreatingVideoServerModal={setIsOpenCreatingVideoServerModal}/>} */}
                   {isOpenDeletingModal && <DeletingModal text={`Удаление видеосервера приведет к удалению всех видео в этом сервере. Вы уверены что хотите удалить клиента "${videoservers[0].name}"`} setIsOpenDeletingModal={setIsOpenDeletingModal}/>}
-                  {/* {isOpenEditingVideoServerModal && <EditingVideoServerModal title="Редактирование видеосервера" setIsOpenEditingVideoServerModal={setIsOpenEditingVideoServerModal}/>} */}
+                  {isOpenEditingModal && <EditingModal title="Редактирование видеосервера" setIsOpenEditingModal={setIsOpenEditingModal}/>}
             </div>
           </div>
           <div className={s.table}>
@@ -128,7 +129,7 @@ const VideoServersPage = ({ videoservers }) => {
                     <td className={s.table_body + " " + s.table_edits}>
                       <div
                         onClick={() => {
-                          setIsOpenEditingVideoServerModal(true);
+                          setIsOpenEditingModal(true);
                         }}
                         className={s.table_edit}
                       >
