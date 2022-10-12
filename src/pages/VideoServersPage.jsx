@@ -6,20 +6,20 @@ import { useState } from "react";
 // import DeletingClientModal from "../../components/modals/DeletingVideoServerModal";
 // import EditingVideoServerModal from "../../components/modals/EditingVideoServerModal";
 import { useNavigate } from "react-router-dom";
-import DeletingModal from "../components/modals/DeletingModal";
-import EditingModal from "../components/modals/EditingModal";
-import CreatingModal from "../components/modals/CreatingModal";
+import DeletingVideoServerModal from "../components/modals/DeletingVideoServerModal";
+import EditingVideoServerModal from "../components/modals/EditingVideoServerModal";
+import CreatingVideoServerModal from "../components/modals/CreatingVideoServerModal";
 import MySearchInput from "../components/MySearchInput";
 
 const VideoServersPage = ({ videoservers }) => {
   const navigate = useNavigate();
 
-  const [isOpenDeletingModal, setIsOpenDeletingModal] = useState(false);
+  const [isOpenDeletingVideoServerModal, setIsOpenDeletingVideoServerModal] = useState(false);
 
-  const [isOpenCreatingModal, setIsOpenCreatingModal] =
+  const [isOpenCreatingVideoServerModal, setIsOpenCreatingVideoServerModal] =
     useState(false);
 
-  const [isOpenEditingModal, setIsOpenEditingModal] = useState(false);
+  const [isOpenEditingVideoServerModal, setIsOpenEditingVideoServerModal] = useState(false);
   return (
     <>
       <Navigation />
@@ -33,7 +33,7 @@ const VideoServersPage = ({ videoservers }) => {
               <MySearchInput placeholder="Поиск по названию сервера"/>
             </div>
             <div className={s.createVideoServers}>
-              <MyButton onClick={() => setIsOpenCreatingModal(true)}>
+              <MyButton onClick={() => setIsOpenCreatingVideoServerModal(true)}>
                 <span className={s.plus_icon}>
                   <svg
                     width="24"
@@ -61,23 +61,23 @@ const VideoServersPage = ({ videoservers }) => {
                 Создать видеосервер
               </MyButton>
 
-              {isOpenCreatingModal && (
-                <CreatingModal
+              {isOpenCreatingVideoServerModal && (
+                <CreatingVideoServerModal
                   title="Создание видеосервера"
-                  setIsOpenCreatingModal={setIsOpenCreatingModal}
+                  setIsOpenCreatingVideoServerModal={setIsOpenCreatingVideoServerModal}
                 />
               )}
 
-              {isOpenDeletingModal && (
-                <DeletingModal
+              {isOpenDeletingVideoServerModal && (
+                <DeletingVideoServerModal
                   text={`Удаление видеосервера приведет к удалению всех видео в этом сервере. Вы уверены что хотите удалить клиента "${videoservers[0].name}"`}
-                  setIsOpenDeletingModal={setIsOpenDeletingModal}
+                  setIsOpenDeletingVideoServerModal={setIsOpenDeletingVideoServerModal}
                 />
               )}
-              {isOpenEditingModal && (
-                <EditingModal
+              {isOpenEditingVideoServerModal && (
+                <EditingVideoServerModal
                   title="Редактирование видеосервера"
-                  setIsOpenEditingModal={setIsOpenEditingModal}
+                  setIsOpenEditingVideoServerModal={setIsOpenEditingVideoServerModal}
                 />
               )}
             </div>
@@ -120,7 +120,7 @@ const VideoServersPage = ({ videoservers }) => {
                     <td className={s.table_body + " " + s.table_edits}>
                       <div
                         onClick={() => {
-                          setIsOpenEditingModal(true);
+                          setIsOpenEditingVideoServerModal(true);
                         }}
                         className={s.table_edit}
                       >
@@ -149,7 +149,7 @@ const VideoServersPage = ({ videoservers }) => {
                       </div>
                       <div
                         onClick={() => {
-                          setIsOpenDeletingModal(true);
+                          setIsOpenDeletingVideoServerModal(true);
                         }}
                         className={s.table_delete}
                       >

@@ -1,16 +1,16 @@
-import s from "../../styles/EditingModal.module.css";
+import s from "../../styles/EditingVideoServerModal.module.css";
 import MyButton from "../MyButton";
-import MyInput from "../../components/MyInput";
+import MyInput from "../MyInput";
 
-const EditingModal = ({ setIsOpenEditingModal, title }) => {
+const EditingVideoServerModal = ({ setIsOpenEditingVideoServerModal, title }) => {
   return (
     <>
-      <div className={s.darkBG} onClick={() => setIsOpenEditingModal(false)} />
+      <div className={s.darkBG} onClick={() => setIsOpenEditingVideoServerModal(false)} />
       <div className={s.centered}>
         <div className={s.modal}>
           <button
             className={s.closeBtn}
-            onClick={() => setIsOpenEditingModal(false)}
+            onClick={() => setIsOpenEditingVideoServerModal(false)}
           >
             <svg
               width="24"
@@ -64,7 +64,7 @@ const EditingModal = ({ setIsOpenEditingModal, title }) => {
             <div className={s.modalActions}>
               <MyButton
                 onClick={() => {
-                    setIsOpenEditingModal(false);
+                    setIsOpenEditingVideoServerModal(false);
                 }}
               >
                 Изменить
@@ -76,4 +76,4 @@ const EditingModal = ({ setIsOpenEditingModal, title }) => {
     </>
   );
 };
-export default EditingModal;
+export default EditingVideoServerModal;

@@ -1,16 +1,16 @@
-import s from "../../styles/CreatingModal.module.css";
+import s from "../../styles/CreatingVideoServerModal.module.css";
 import MyButton from "../MyButton";
 import MyInput from "../MyInput";
 
-const CreatingModal = ({ setIsOpenCreatingModal, title }) => {
+const CreatingVideoServerModal = ({ setIsOpenCreatingVideoServerModal, title }) => {
   return (
     <>
-      <div className={s.darkBG} onClick={() => setIsOpenCreatingModal(false)} />
+      <div className={s.darkBG} onClick={() => setIsOpenCreatingVideoServerModal(false)} />
       <div className={s.centered}>
         <div className={s.modal}>
           <button
             className={s.closeBtn}
-            onClick={() => setIsOpenCreatingModal(false)}
+            onClick={() => setIsOpenCreatingVideoServerModal(false)}
           >
             <svg
               width="24"
@@ -113,7 +113,7 @@ const CreatingModal = ({ setIsOpenCreatingModal, title }) => {
             <div className={s.modalActions}>
               <MyButton
                 onClick={() => {
-                  setIsOpenCreatingModal(false);
+                  setIsOpenCreatingVideoServerModal(false);
                 }}
               >
                 Создать
@@ -125,4 +125,4 @@ const CreatingModal = ({ setIsOpenCreatingModal, title }) => {
     </>
   );
 };
-export default CreatingModal;
+export default CreatingVideoServerModal;

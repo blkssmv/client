@@ -2,7 +2,7 @@ import { useState } from "react";
 import MyButton from "../components/MyButton";
 import Navigation from "../components/Navigation";
 import s from "../styles/CamerasPage.module.css";
-// import CreatingCameraModal from "../../components/modals/CreatingCameraModal";
+import CreatingCameraModal from "../components/modals/CreatingCameraModal";
 import video_test from "../layouts/videos/test_video.mp4";
 import { useNavigate } from "react-router-dom";
 import MySearchInput from "../components/MySearchInput";
@@ -40,7 +40,6 @@ const CamerasPage = ({ cameras, service_packages, videoservers }) => {
     setIsListSorted(false);
     setIsWindowSorted(true);
   };
-  
 
   const [isCurrentColumnWindowSort, setIsCurrentColumnWindowSort] = useState(2);
 
@@ -106,47 +105,56 @@ const CamerasPage = ({ cameras, service_packages, videoservers }) => {
           </div>
 
           <div className={s.formsAndSort}>
-            <div className={s.forms}>
-              <div className={s.searchVideoServer}>
-                <MySearchInput placeholder="Поиск по названию"/>
+            {isActiveClassLive ? (
+              <div className={s.forms}>
+                <div className={s.searchVideoServer}>
+                  <MySearchInput placeholder="Поиск по названию" />
+                </div>
+                <div className={s.createCamera}>
+                  <MyButton onClick={() => setIsOpenCreatingCameraModal(true)}>
+                    <span className={s.plus_icon}>
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M12 5V19"
+                          stroke="white"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                        <path
+                          d="M5 12H19"
+                          stroke="white"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </span>
+                    Создать камеру
+                  </MyButton>
+                  {isOpenCreatingCameraModal && (
+                    <CreatingCameraModal
+                      service_packages={service_packages}
+                      setIsOpenCreatingCameraModal={
+                        setIsOpenCreatingCameraModal
+                      }
+                      title="Создание камеры"
+                    />
+                  )}
+                </div>
               </div>
-              <div className={s.createCamera}>
-                <MyButton onClick={() => setIsOpenCreatingCameraModal(true)}>
-                  <span className={s.plus_icon}>
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M12 5V19"
-                        stroke="white"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="M5 12H19"
-                        stroke="white"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </span>
-                  Создать камеру
-                </MyButton>
-                {/* {isOpenCreatingCameraModal && (
-                  <CreatingCameraModal
-                    service_packages={service_packages}
-                    setIsOpenCreatingCameraModal={setIsOpenCreatingCameraModal}
-                    title="Создание камеры"
-                  />
-                )} */}
+            ) : (
+              <div className={s.plugins}>
+                plugins
               </div>
-            </div>
+            )}
+
             <div className={s.sort}>
               {isWindowSorted && (
                 <div
@@ -365,7 +373,7 @@ const CamerasPage = ({ cameras, service_packages, videoservers }) => {
                     : s.window_video_threeColumn
                 }
               >
-                <video src={video_test} />
+                <video autoPlay={true} src={video_test} />
               </div>
               <div
                 className={

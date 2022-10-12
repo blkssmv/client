@@ -1,18 +1,18 @@
 
-import s from '../../styles/DeletingModal.module.css'
+import s from '../../styles/DeletingVideoServerModal.module.css'
 
-const DeletingModal = ({ setIsOpenDeletingModal, text }) => {
+const DeletingModal = ({ setIsOpenDeletingVideoServerModal, text }) => {
   return (
     <>
       <div
         className={s.darkBG}
-        onClick={() => setIsOpenDeletingModal(false)}
+        onClick={() => setIsOpenDeletingVideoServerModal(false)}
       />
       <div className={s.centered}>
         <div className={s.modal}>
           <button
             className={s.closeBtn}
-            onClick={() => setIsOpenDeletingModal(false)}
+            onClick={() => setIsOpenDeletingVideoServerModal(false)}
           >
             <svg
               width="24"
@@ -40,10 +40,10 @@ const DeletingModal = ({ setIsOpenDeletingModal, text }) => {
           <div className={s.modalContent}>
             <div className={s.modalText}>{text}</div>
             <div className={s.modalActionsDeleting}>
-              <button className={s.cancelButton} onClick={() => setIsOpenDeletingModal(false)}>
+              <button className={s.cancelButton} onClick={() => setIsOpenDeletingVideoServerModal(false)}>
                 Отмена
               </button>
-              <button className={s.deletingButton} onClick={() => setIsOpenDeletingModal(false)}>
+              <button className={s.deletingButton} onClick={() => setIsOpenDeletingVideoServerModal(false)}>
                 Удалить
               </button>
             </div>
