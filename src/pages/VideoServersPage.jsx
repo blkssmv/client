@@ -10,27 +10,33 @@ import DeletingVideoServerModal from "../components/modals/DeletingVideoServerMo
 import EditingVideoServerModal from "../components/modals/EditingVideoServerModal";
 import CreatingVideoServerModal from "../components/modals/CreatingVideoServerModal";
 import MySearchInput from "../components/MySearchInput";
+import NotificationAfterModal from "../components/NotificationAfterModal";
 
 const VideoServersPage = ({ videoservers }) => {
   const navigate = useNavigate();
 
-  const [isOpenDeletingVideoServerModal, setIsOpenDeletingVideoServerModal] = useState(false);
+  const [isOpenDeletingVideoServerModal, setIsOpenDeletingVideoServerModal] =
+    useState(false);
 
   const [isOpenCreatingVideoServerModal, setIsOpenCreatingVideoServerModal] =
     useState(false);
 
-  const [isOpenEditingVideoServerModal, setIsOpenEditingVideoServerModal] = useState(false);
+  const [isOpenEditingVideoServerModal, setIsOpenEditingVideoServerModal] =
+    useState(false);
   return (
     <>
       <Navigation />
       <div className={s.videoServers}>
         <div className={s.videoServers_wrapper}>
+          <NotificationAfterModal>
+            Видеосервер успешно создан!
+          </NotificationAfterModal>
           <header className={s.videoServers_header}>
             <div className={s.videoServers_header_title}>Видеосерверы</div>
           </header>
           <div className={s.forms}>
             <div className={s.searchVideoServers}>
-              <MySearchInput placeholder="Поиск по названию сервера"/>
+              <MySearchInput placeholder="Поиск по названию сервера" />
             </div>
             <div className={s.createVideoServers}>
               <MyButton onClick={() => setIsOpenCreatingVideoServerModal(true)}>
@@ -64,20 +70,26 @@ const VideoServersPage = ({ videoservers }) => {
               {isOpenCreatingVideoServerModal && (
                 <CreatingVideoServerModal
                   title="Создание видеосервера"
-                  setIsOpenCreatingVideoServerModal={setIsOpenCreatingVideoServerModal}
+                  setIsOpenCreatingVideoServerModal={
+                    setIsOpenCreatingVideoServerModal
+                  }
                 />
               )}
 
               {isOpenDeletingVideoServerModal && (
                 <DeletingVideoServerModal
                   text={`Удаление видеосервера приведет к удалению всех видео в этом сервере. Вы уверены что хотите удалить клиента "${videoservers[0].name}"`}
-                  setIsOpenDeletingVideoServerModal={setIsOpenDeletingVideoServerModal}
+                  setIsOpenDeletingVideoServerModal={
+                    setIsOpenDeletingVideoServerModal
+                  }
                 />
               )}
               {isOpenEditingVideoServerModal && (
                 <EditingVideoServerModal
                   title="Редактирование видеосервера"
-                  setIsOpenEditingVideoServerModal={setIsOpenEditingVideoServerModal}
+                  setIsOpenEditingVideoServerModal={
+                    setIsOpenEditingVideoServerModal
+                  }
                 />
               )}
             </div>

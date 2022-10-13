@@ -116,7 +116,7 @@ const CreatingCameraModal = ({
                 </div>
               </div>
               
-              <MyInput placeholder="Серийный номер">
+              <MyInput placeholder="URL">
                 <svg
                   width="24"
                   height="24"

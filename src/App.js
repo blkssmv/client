@@ -3,6 +3,7 @@ import {Routes, Route} from 'react-router-dom'
 import Authorization from './pages/AuthorizationPage';
 import VideoServersPage from './pages/VideoServersPage';
 import CamerasPage from './pages/CamerasPage';
+import CameraPage from './pages/CameraPage';
 
 function App() {
 
@@ -149,6 +150,7 @@ function App() {
           <Route path='/authorization' element={<Authorization/>}/>
           <Route path='/videoservers' element={<VideoServersPage videoservers={videoservers}/>}/>
           <Route path='/cameras' element={<CamerasPage cameras={videoservers[0].cameras} service_packages={service_packages} videoservers={videoservers}/>}/>
+          <Route path='/cameras/1' element={<CameraPage videoservers={videoservers} camera={videoservers[0].cameras[0]}/>}/>
         </Routes>
     </div>
   );

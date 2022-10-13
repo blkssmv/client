@@ -1,0 +1,27 @@
+.notificationAfterModal {
+    right: 72px;
+    top: 24px;
+    display: flex;
+    align-items: center;
+    background: #D1ECDD;
+    border: 2px solid #B3DFC6;
+    border-radius: 20px;
+    padding: 16px;
+    position: absolute;
+}
+
+.notificationAfterModal_icon {
+    display: flex;
+    align-items: center;
+    margin-right: 8px;
+}
+
+.notificationAfterModal_text {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    color: #00A044;
+}

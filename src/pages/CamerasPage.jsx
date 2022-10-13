@@ -6,6 +6,7 @@ import CreatingCameraModal from "../components/modals/CreatingCameraModal";
 import video_test from "../layouts/videos/test_video.mp4";
 import { useNavigate } from "react-router-dom";
 import MySearchInput from "../components/MySearchInput";
+import NotificationAfterModal from "../components/NotificationAfterModal";
 
 const CamerasPage = ({ cameras, service_packages, videoservers }) => {
   const [isOpenCreatingCameraModal, setIsOpenCreatingCameraModal] =
@@ -55,6 +56,10 @@ const CamerasPage = ({ cameras, service_packages, videoservers }) => {
       <Navigation />
       <div className={s.camerasPage}>
         <div className={s.camerasPage_wrapper}>
+          <NotificationAfterModal>
+            Камера успешно создана!
+          </NotificationAfterModal>
+
           <header className={s.camerasPage_header}>
             <div onClick={navigateToPrevPage} className={s.header_prevPage}>
               Видеосерверы
@@ -150,9 +155,7 @@ const CamerasPage = ({ cameras, service_packages, videoservers }) => {
                 </div>
               </div>
             ) : (
-              <div className={s.plugins}>
-                plugins
-              </div>
+              <div className={s.plugins}>plugins</div>
             )}
 
             <div className={s.sort}>

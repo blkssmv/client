@@ -13,6 +13,7 @@
     margin: 0 auto;
     padding: 40px 72px 0;
     height: 100vh;
+    position: relative;
 }
 
 .videoServers_header {
