@@ -3,7 +3,7 @@
     border-radius: 49px;
     max-width: 380px;
     width: 100%;
-    height: 42px;
+    max-height: 42px;
     align-items: center;
     background: #3377FF;
     border: none;
@@ -15,7 +15,7 @@
     color: #FFFFFF;
     cursor: pointer;
     transition: all .2s;
-    padding: 0 16px;
+    padding: 9px 20px;
 }
 .myButton:hover{
     background: #588afa;

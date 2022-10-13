@@ -1,0 +1,54 @@
+.cameraCard {
+    padding: 16px;
+    border: 1px solid #DDE5E9;
+    border-radius: 20px;
+    background: #FFFFFF;
+    width: 632px;
+    /* width: 100%; */
+    display: flex;
+}
+
+.cameraCard_video {
+    width: 304px;
+    margin-right: 16px;
+}
+
+.cameraCard_video video {
+    width: 304px;
+    height: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.cameraCard_info_title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3px 14px;
+    background: #3377FF;
+    border-radius: 17px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 24px;
+    color: #FFFFFF;
+    margin-bottom: 12px;
+}
+/* .cameraCard_info_body{
+    display: flex;
+    flex-direction: column;
+} */
+.cameraCard_info_item {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    color: #232325;
+    margin-bottom: 4px;
+}
+.cameraCard_info_item:last-child{
+    margin-bottom: 0;
+}
+.cameraCard_info_names{
+    font-weight: 700;
+}

@@ -7,6 +7,7 @@ import video_test from "../layouts/videos/test_video.mp4";
 import { useNavigate } from "react-router-dom";
 import MySearchInput from "../components/MySearchInput";
 import NotificationAfterModal from "../components/NotificationAfterModal";
+import CameraCard from "../components/CameraCard";
 
 const CamerasPage = ({ cameras, service_packages, videoservers }) => {
   const [isOpenCreatingCameraModal, setIsOpenCreatingCameraModal] =
@@ -155,11 +156,51 @@ const CamerasPage = ({ cameras, service_packages, videoservers }) => {
                 </div>
               </div>
             ) : (
-              <div className={s.plugins}>plugins</div>
+              <ul className={s.filter}>
+                <li className={s.filter_item}>
+                  <select name="plugin" id="">
+                    {videoservers[0].available_plugins.map((plugin, index) => (
+                      <option key={index} value={plugin}>
+                        {plugin}
+                      </option>
+                    ))}
+                  </select>
+                </li>
+                <li className={s.filter_item}>
+                  <select name="camera" id="">
+                    {videoservers[0].cameras.map((camera) => (
+                      <option key={camera.id} value={camera.name}>
+                        {camera.name}
+                      </option>
+                    ))}
+                  </select>
+                </li>
+                <li className={s.filter_item}>
+                  <select name="day" id="">
+                    <option value="12.01">12.01</option>
+                    <option value="13.01">13.01</option>
+                    <option value="14.01">14.01</option>
+                  </select>
+                </li>
+                <li className={s.filter_item}>
+                  <select name="time" id="">
+                    <option value="10:30">10:30</option>
+                    <option value="11:30">11:30</option>
+                    <option value="12:30">12:30</option>
+                  </select>
+                </li>
+                <li className={s.filter_item}>
+                  <select name="type" id="">
+                    <option value="Бро 1">Бро 1</option>
+                    <option value="Бро 2">Бро 2</option>
+                    <option value="Бро 3">Бро 3</option>
+                  </select>
+                </li>
+              </ul>
             )}
 
             <div className={s.sort}>
-              {isWindowSorted && (
+              {(isActiveClassLive && isWindowSorted) && (
                 <div
                   onClick={
                     isCurrentColumnWindowSort === 2
@@ -334,7 +375,7 @@ const CamerasPage = ({ cameras, service_packages, videoservers }) => {
                 </tbody>
               </table>
             </div>
-          ) : (
+          ) : (isActiveClassLive && isWindowSorted) ? (
             <div
               className={
                 isCurrentColumnWindowSort === 2
@@ -397,7 +438,13 @@ const CamerasPage = ({ cameras, service_packages, videoservers }) => {
                 <video src={video_test} />
               </div>
             </div>
-          )}
+          ) : (isActiveClassDevelopment && isWindowSorted) && <div className={s.development}>
+          {videoservers[0].cameras.map((camera) => (
+            <CameraCard key={camera.id} camera={camera} videoserver={videoservers[0]}/>
+          ))}
+        </div>}
+
+        
         </div>
       </div>
       {isListSorted && (

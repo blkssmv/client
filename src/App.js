@@ -12,36 +12,36 @@ function App() {
       id: 1,
       name: 'Видеосервер 1',
       vid_camera_count: 2,
-      available_plugins: ['asd', 'asd', 'dd'],
+      available_plugins: ['FR', 'FC', 'LRP', 'Smoking'],
       vid_active_plugins: ['sss', 'ccss', 'dddd'],
       vid_payment_status: Date.now(),
       cameras: [
         {
           id: 1,
           name: 'Задний двор',
-          connection_date: '20.03.2021',
+          connection_date: Date.now(),
           cam_available_plugins: ['asd', 'asd', 'dd'],
           cam_active_plugins: ['sss', 'ccss', 'dddd'],
           service_packages: "2 месяца",
-          cam_payment_status: '30.07.2022'
+          cam_payment_status: Date.now()
         },
         {
           id: 2,
-          name: 'Задний двор',
-          connection_date: '20.03.2021',
+          name: 'Вход в магазин',
+          connection_date: Date.now(),
           cam_available_plugins: ['asd', 'asd', 'dd'],
           cam_active_plugins: ['sss', 'ccss', 'dddd'],
           service_packages: "2 месяца",
-          cam_payment_status: '30.07.2022'
+          cam_payment_status: Date.now()
         },
         {
           id: 3,
-          name: 'Задний двор',
-          connection_date: '20.03.2021',
+          name: 'Холодильники',
+          connection_date: Date.now(),
           cam_available_plugins: ['asd', 'asd', 'dd'],
           cam_active_plugins: ['sss', 'ccss', 'dddd'],
           service_packages: "2 месяца",
-          cam_payment_status: '30.07.2022'
+          cam_payment_status: Date.now()
         },
       ],
     },
@@ -49,7 +49,7 @@ function App() {
       id: 2,
       name: 'Видеосервер 1',
       vid_camera_count: 2,
-      available_plugins: ['asd', 'asd', 'dd'],
+      available_plugins: ['FR', 'FC', 'LRP', 'Smoking'],
       vid_active_plugins: ['sss', 'ccss', 'dddd'],
       cameras: [
         {
@@ -63,7 +63,7 @@ function App() {
         },
         {
           id: 2,
-          name: 'Задний двор',
+          name: 'Вход в магазин',
           connection_date: Date.now(),
           cam_available_plugins: ['asd', 'asd', 'dd'],
           cam_active_plugins: ['sss', 'ccss', 'dddd'],
@@ -72,7 +72,7 @@ function App() {
         },
         {
           id: 3,
-          name: 'Задний двор',
+          name: 'Холодильники',
           connection_date: Date.now(),
           cam_available_plugins: ['asd', 'asd', 'dd'],
           cam_active_plugins: ['sss', 'ccss', 'dddd'],
@@ -87,7 +87,7 @@ function App() {
       id: 3,
       name: 'Видеосервер 1',
       vid_camera_count: 2,
-      available_plugins: ['asd', 'asd', 'dd'],
+      available_plugins: ['FR', 'FC', 'LRP', 'Smoking'],
       vid_active_plugins: ['sss', 'ccss', 'dddd'],
       service_packages: "2 месяца",
       vid_payment_status: Date.now(),
@@ -103,7 +103,7 @@ function App() {
         },
         {
           id: 2,
-          name: 'Задний двор',
+          name: 'Вход в магазин',
           connection_date: Date.now(),
           cam_available_plugins: ['asd', 'asd', 'dd'],
           cam_active_plugins: ['sss', 'ccss', 'dddd'],
@@ -112,7 +112,7 @@ function App() {
         },
         {
           id: 3,
-          name: 'Задний двор',
+          name: 'Холодильники',
           connection_date: Date.now(),
           cam_available_plugins: ['asd', 'asd', 'dd'],
           cam_active_plugins: ['sss', 'ccss', 'dddd'],

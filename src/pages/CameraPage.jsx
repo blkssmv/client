@@ -4,8 +4,9 @@ import Navigation from "../components/Navigation";
 import s from "../styles/CameraPage.module.css";
 import test_video from "../layouts/videos/test_video.mp4";
 import MyButton from "../components/MyButton";
+import CameraCard from "../components/CameraCard";
 
-const CameraPage = ({ camera, videoservers }) => {
+const CameraPage = ({ camera,videoservers }) => {
   const navigate = useNavigate();
   const navigateToPrevPrevPage = () => {
     navigate("/videoservers");
@@ -25,6 +26,10 @@ const CameraPage = ({ camera, videoservers }) => {
     setIsActiveClassLive(false);
     setIsActiveClassDevelopment(true);
   };
+  
+
+
+
   return (
     <>
       <Navigation />
@@ -75,6 +80,9 @@ const CameraPage = ({ camera, videoservers }) => {
               <span className={s.camera}> {camera.name}</span>
             </div>
           </header>
+
+
+
           <div className={s.cameraPage_chapter}>
             <div
               onClick={setLive}
@@ -120,7 +128,11 @@ const CameraPage = ({ camera, videoservers }) => {
               </div>
             </div>
           ) : (
-            <div>Sobytiya</div>
+            <div className={s.development}>
+              {videoservers[0].cameras.map((camera) => (
+                <CameraCard key={camera.id} camera={camera} videoserver={videoservers[0]}/>
+              ))}
+            </div>
           )}
         </div>
       </div>
