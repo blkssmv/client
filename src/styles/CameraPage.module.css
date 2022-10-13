@@ -1,6 +1,7 @@
-.cameraPage{
+.cameraPage {
     background-color: #FAFAFC;
 }
+
 .cameraPage_wrapper {
     max-width: 1440px;
     margin: 0 auto;
@@ -8,6 +9,7 @@
     height: 100vh;
     position: relative;
 }
+
 .header_prevPage {
     cursor: pointer;
 }
@@ -36,4 +38,74 @@
 .header_arrow {
     display: flex;
     align-items: center;
+}
+
+.cameraPage_chapter {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border-bottom: 1px solid #EBEBF0;
+    margin-bottom: 33px;
+}
+
+.cameraPage_chapter_item {
+    cursor: pointer;
+    margin-right: 48px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+    color: #232325;
+    padding-bottom: 12px;
+    padding-right: 24px;
+}
+
+.cameraPage_chapter_item:last-child {
+    margin-right: 0;
+    padding-right: 0;
+}
+
+.cameraPage_chapter_item_active {
+    color: #3377FF;
+    border-bottom: 2px solid #3377FF;
+}
+
+.cameraPage_content {
+    background: #FFFFFF;
+    border: 1px solid #DDE5E9;
+    border-radius: 20px;
+    display: flex;
+    padding: 24px;
+}
+
+.cameraPage_video {
+    max-width: 728px;
+    width: 100%;
+    max-height: 420px;
+    height: 100%;
+    margin-right: 32px;
+}
+
+.cameraPage_video video {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+}
+.cameraPage_info{
+    color: #232325;
+}
+.cameraPage_info_title {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 24px;
+}
+
+.cameraPage_info_body {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 32px;
 }

@@ -1,14 +1,30 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navigation from "../components/Navigation";
 import s from "../styles/CameraPage.module.css";
-const CameraPage = ({camera, videoservers}) => {
-    const navigate = useNavigate();
+import test_video from "../layouts/videos/test_video.mp4";
+import MyButton from "../components/MyButton";
+
+const CameraPage = ({ camera, videoservers }) => {
+  const navigate = useNavigate();
   const navigateToPrevPrevPage = () => {
-    navigate('/videoservers');
+    navigate("/videoservers");
   };
   const navigateToPrevPage = () => {
-    navigate(-1)
-  }
+    navigate(-1);
+  };
+  const [isActiveClassLive, setIsActiveClassLive] = useState(true);
+  const [isActiveClassDevelopment, setIsActiveClassDevelopment] =
+    useState(false);
+
+  const setLive = () => {
+    setIsActiveClassLive(true);
+    setIsActiveClassDevelopment(false);
+  };
+  const setDevelopment = () => {
+    setIsActiveClassLive(false);
+    setIsActiveClassDevelopment(true);
+  };
   return (
     <>
       <Navigation />
@@ -59,7 +75,53 @@ const CameraPage = ({camera, videoservers}) => {
               <span className={s.camera}> {camera.name}</span>
             </div>
           </header>
-          <div className={s.cameraPage_content}></div>
+          <div className={s.cameraPage_chapter}>
+            <div
+              onClick={setLive}
+              className={
+                isActiveClassLive
+                  ? `${s.cameraPage_chapter_item} + ' ' + ${s.cameraPage_chapter_item_active}`
+                  : s.cameraPage_chapter_item
+              }
+            >
+              Live
+            </div>
+            <div
+              onClick={setDevelopment}
+              className={
+                isActiveClassDevelopment
+                  ? `${s.cameraPage_chapter_item} + ' ' + ${s.cameraPage_chapter_item_active}`
+                  : s.cameraPage_chapter_item
+              }
+            >
+              События
+            </div>
+          </div>
+          {isActiveClassLive ? (
+            <div className={s.cameraPage_content}>
+              <div className={s.cameraPage_video}>
+                <video src={test_video} autoPlay={true} />
+              </div>
+              <div className={s.cameraPage_info}>
+                <div className={s.cameraPage_info_title}>{camera.name}</div>
+                <div className={s.cameraPage_info_body}>
+                  <div className={s.cameraPage_info_item}>
+                    <span>Видеосервер: </span>
+                    {videoservers[0].name}
+                  </div>
+                  <div className={s.cameraPage_info_item}>
+                    <span>Плагины: </span>
+                    {camera.cam_active_plugins[0]}
+                  </div>
+                </div>
+                <div className={s.cameraPage_info_edit}>
+                  <MyButton>Редактировать камеру</MyButton>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div>Sobytiya</div>
+          )}
         </div>
       </div>
     </>
