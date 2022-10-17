@@ -29,7 +29,9 @@ const Navigation = ({isHaveAccess}) => {
           <span className={s.notifications_text}>Уведомления</span>
         </li>
         {isHaveAccess && <li className={s.isHaveAccess}>
-          <div className={s.isHaveAccess_icon}></div>
+          <div className={s.isHaveAccess_icon}>
+            
+          </div>
           <div className={s.isHaveAccess_text}>Предоставлен доступ</div>
           </li>}
         <li className={s.logout}>Выйти</li>

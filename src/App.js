@@ -151,7 +151,7 @@ function App() {
         <Routes>
           <Route path='/authorization' element={<Authorization/>}/>
           <Route path='/videoservers' element={<VideoServersPage videoservers={videoservers}/>}/>
-          <Route path='/cameras' element={<CamerasPage setIsHaveAccess={setIsHaveAccess} cameras={videoservers[0].cameras} service_packages={service_packages} videoservers={videoservers}/>}/>
+          <Route path='/cameras' element={<CamerasPage isHaveAccess={isHaveAccess} setIsHaveAccess={setIsHaveAccess} cameras={videoservers[0].cameras} service_packages={service_packages} videoservers={videoservers}/>}/>
           <Route path='/cameras/1' element={<CameraPage videoservers={videoservers} camera={videoservers[0].cameras[0]}/>}/>
         </Routes>
     </div>
