@@ -9,8 +9,9 @@ import MySearchInput from "../components/MySearchInput";
 import NotificationAfterModal from "../components/NotificationAfterModal";
 import CameraCard from "../components/CameraCard";
 import DevelopmentModal from "../components/modals/DevelopmentModal";
+import PluginsModal from "../components/modals/PluginsModal";
 
-const CamerasPage = ({ cameras, service_packages, videoservers }) => {
+const CamerasPage = ({ cameras, service_packages, videoservers, isHaveAccess, setIsHaveAccess }) => {
   const [isOpenCreatingCameraModal, setIsOpenCreatingCameraModal] =
     useState(false);
 
@@ -55,10 +56,12 @@ const CamerasPage = ({ cameras, service_packages, videoservers }) => {
 
   const [isOpenDevelopmentModal, setIsOpenDevelopmentModal] = useState(false)
 
+  const [isOpenPluginsModal, setIsOpenPluginsModal] = useState(true)
+
 
   return (
     <>
-      <Navigation />
+      <Navigation isHaveAccess={isHaveAccess}/>
       <div className={s.camerasPage}>
         <div className={s.camerasPage_wrapper}>
           <NotificationAfterModal>
@@ -162,7 +165,8 @@ const CamerasPage = ({ cameras, service_packages, videoservers }) => {
             ) : (
               <ul className={s.filter}>
                 <li className={s.filter_item}>
-                  <select name="plugin" id="">
+                  <select name="plugin" id="" defaultValue="Плагин">
+                    <option value="Плагин" disabled>Плагин</option>
                     {videoservers[0].available_plugins.map((plugin, index) => (
                       <option key={index} value={plugin}>
                         {plugin}
@@ -171,7 +175,8 @@ const CamerasPage = ({ cameras, service_packages, videoservers }) => {
                   </select>
                 </li>
                 <li className={s.filter_item}>
-                  <select name="camera" id="">
+                  <select name="camera" id="" defaultValue="Камера">
+                  <option value="Камера" disabled>Камера</option>
                     {videoservers[0].cameras.map((camera) => (
                       <option key={camera.id} value={camera.name}>
                         {camera.name}
@@ -180,21 +185,24 @@ const CamerasPage = ({ cameras, service_packages, videoservers }) => {
                   </select>
                 </li>
                 <li className={s.filter_item}>
-                  <select name="day" id="">
+                  <select name="day" id="" defaultValue="Дата">
+                    <option value="Дата" disabled>Дата</option>
                     <option value="12.01">12.01</option>
                     <option value="13.01">13.01</option>
                     <option value="14.01">14.01</option>
                   </select>
                 </li>
                 <li className={s.filter_item}>
-                  <select name="time" id="">
+                  <select name="time" id="" defaultValue="Время">
+                    <option value="Время" disabled>Время</option>
                     <option value="10:30">10:30</option>
                     <option value="11:30">11:30</option>
                     <option value="12:30">12:30</option>
                   </select>
                 </li>
                 <li className={s.filter_item}>
-                  <select name="type" id="">
+                  <select name="type" id="" defaultValue="Тип">
+                    <option value="Тип" disabled>Тип</option>
                     <option value="Бро 1">Бро 1</option>
                     <option value="Бро 2">Бро 2</option>
                     <option value="Бро 3">Бро 3</option>
@@ -289,7 +297,7 @@ const CamerasPage = ({ cameras, service_packages, videoservers }) => {
             </div>
           </div>
 
-          {isListSorted ? (
+          {(isListSorted && isActiveClassLive)  ? (
             <div className={s.table}>
               <table cellSpacing="0" className={s.table_content}>
                 <thead>
@@ -379,7 +387,47 @@ const CamerasPage = ({ cameras, service_packages, videoservers }) => {
                 </tbody>
               </table>
             </div>
-          ) : (isActiveClassLive && isWindowSorted) ? (
+          ) : (isListSorted && isActiveClassDevelopment) ? (<div>
+            <div className={s.table}>
+              <table cellSpacing="0" className={s.table_content}>
+                <thead>
+                  <tr>
+                    <th className={s.table_header}>№</th>
+                    <th className={s.table_header}>Событие</th>
+                    <th className={s.table_header}>Камера</th>
+                    <th className={s.table_header}>Плагины</th>
+                    <th className={s.table_header}>Дата</th>
+                    <th className={s.table_header}>Время</th>
+                  </tr>
+                </thead>
+                <tbody style={{ padding: "20px" }}>
+                  {cameras.map((camera) => (
+                    <tr key={camera.id}>
+                      <td className={s.table_body}>{camera.id}</td>
+                      <td className={s.table_body + " " + s.table_body_name}>
+                        {camera.name}
+                      </td>
+                      <td className={s.table_body}>20.03.2021</td>
+                      <td className={s.table_body}>
+                        {camera.cam_available_plugins.join()}
+                      </td>
+                      <td className={s.table_body}>
+                        {camera.cam_active_plugins.join()}
+                      </td>
+                      <td className={s.table_body}>
+                      2 месяца
+                      </td>
+                      
+                      
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+
+
+          </div>) : (isActiveClassLive && isWindowSorted) ? (
             <div
               className={
                 isCurrentColumnWindowSort === 2
@@ -447,12 +495,13 @@ const CamerasPage = ({ cameras, service_packages, videoservers }) => {
             <CameraCard onClick={() => setIsOpenDevelopmentModal(true)} key={camera.id} camera={camera} videoserver={videoservers[0]}/>
           ))}
           {isOpenDevelopmentModal && <DevelopmentModal videoserver={videoservers[0]} setIsOpenDevelopmentModal={setIsOpenDevelopmentModal} title={"События 1"}/>}
+          {isOpenPluginsModal && <PluginsModal title="Редактирование плагинов" setIsOpenPluginsModal={setIsOpenPluginsModal}/>}
         </div>}
 
         
         </div>
-      </div>
-      {isListSorted && (
+      
+        {isListSorted && (
         <div className={s.videoServer_pageWrapper}>
           <div className={s.videoServer_prevPage}>
             <svg
@@ -507,6 +556,8 @@ const CamerasPage = ({ cameras, service_packages, videoservers }) => {
           </div>
         </div>
       )}
+      </div>
+      
     </>
   );
 };
