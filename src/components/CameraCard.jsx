@@ -1,9 +1,10 @@
 import s from "../styles/CameraCard.module.css";
 import test_video from "../layouts/videos/test_video.mp4";
 
-const CameraCard = ({ camera, videoserver }) => {
+const CameraCard = ({ onClick, camera, videoserver }) => {
+  
   return (
-    <div className={s.cameraCard}>
+    <div className={s.cameraCard} onClick={onClick}>
       <div className={s.cameraCard_video}>
         <video src={test_video} />
       </div>

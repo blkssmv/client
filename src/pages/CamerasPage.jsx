@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import MySearchInput from "../components/MySearchInput";
 import NotificationAfterModal from "../components/NotificationAfterModal";
 import CameraCard from "../components/CameraCard";
+import DevelopmentModal from "../components/modals/DevelopmentModal";
 
 const CamerasPage = ({ cameras, service_packages, videoservers }) => {
   const [isOpenCreatingCameraModal, setIsOpenCreatingCameraModal] =
@@ -51,6 +52,9 @@ const CamerasPage = ({ cameras, service_packages, videoservers }) => {
   const setThreeColumnWindowSort = () => {
     setIsCurrentColumnWindowSort(3);
   };
+
+  const [isOpenDevelopmentModal, setIsOpenDevelopmentModal] = useState(false)
+
 
   return (
     <>
@@ -440,8 +444,9 @@ const CamerasPage = ({ cameras, service_packages, videoservers }) => {
             </div>
           ) : (isActiveClassDevelopment && isWindowSorted) && <div className={s.development}>
           {videoservers[0].cameras.map((camera) => (
-            <CameraCard key={camera.id} camera={camera} videoserver={videoservers[0]}/>
+            <CameraCard onClick={() => setIsOpenDevelopmentModal(true)} key={camera.id} camera={camera} videoserver={videoservers[0]}/>
           ))}
+          {isOpenDevelopmentModal && <DevelopmentModal videoserver={videoservers[0]} setIsOpenDevelopmentModal={setIsOpenDevelopmentModal} title={"События 1"}/>}
         </div>}
 
         
