@@ -1,55 +1,128 @@
-.nav{
+.nav {
     max-width: 1440px;
-    margin: 0 auto ;
+    margin: 0 auto;
     padding: 8px 72px;
     display: flex;
     list-style: none;
     align-items: center;
     box-shadow: inset 0 -1px 1px #F2F2F5;
+    justify-content: space-between;
 }
-.logo_icon{
+
+.logo_icon {
     display: flex;
     align-items: center;
     margin-right: 95px;
 }
 
 
-.logo_img{
+.logo_img {
     margin-right: 4px;
     width: 55px;
     height: 55px;
 }
-.logo_text{
+
+.logo_text {
     text-transform: uppercase;
     font-family: 'DM Sans', sans-serif;
     font-weight: 700;
     font-size: 18px;
-    line-height: 24px; color: #3377FF;
+    line-height: 24px;
+    color: #3377FF;
 }
-.notifications{
+
+.notifications {
     display: flex;
     align-items: center;
     margin-right: 15px;
     cursor: pointer;
 }
-.notifications_img{
+
+.notifications_img {
     width: 24px;
     height: 24px;
     margin-right: 8px;
 }
-.notifications_img img{
+
+.notifications_img img {
     width: 100%;
     height: 100%;
 }
-.notifications_text{
+
+.notifications_text {
     font-family: 'DM Sans', sans-serif;
     font-weight: 500;
     font-size: 16px;
     line-height: 21px;
     color: #000000;
 }
-.logout{
-    margin-left: auto;
+
+.isHaveAccess {
+    display: flex;
+    align-items: center;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #3377FF;
+    padding: 8px 12px;
+    background: #FFFFFF;
+    border: 1px solid #3377FF;
+    border-radius: 8px;
+    margin-right: 48px;
+    cursor: pointer;
+    position: relative;
+}
+.closeAccess{
+    padding: 4px 4px;
+    position: absolute;
+    display: none;
+    background: #FFFFFF;
+    border-radius: 8px;
+    top: 40px;
+    left: 25px;
+    z-index: 5;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 4px 20px rgba(76, 78, 81, 0.1), 0px 0px 1px rgba(9, 30, 66, 0.31);
+}
+.closeAccess_btn{
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 24px;
+    background: none;
+    border: none;
+    border-radius: 8px;
+    color: #FF3B3B;
+    cursor: pointer;
+    transition: all .2s;
+    padding: 8px 16px;
+}
+.closeAccess_btn:hover{
+    background-color: #FF3B3B;
+    color: #FFFFFF;
+}
+.isHaveAccess:hover .closeAccess{
+    display: flex;
+}
+.closeAccess:hover .closeAccess{
+    display: flex;
+}
+
+.isHaveAccess_icon {
+    margin-right: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logout {
+    display: flex;
+    align-items: center;
+}
+
+.logout_text {
     font-family: 'DM Sans', sans-serif;
     font-weight: 700;
     font-size: 16px;

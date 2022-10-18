@@ -302,14 +302,7 @@
     gap: 10px;
 
 }
-/* 
-.filter_item {
-    background: #F4F7FE;
-    border: 1px solid #DDE5E9;
-    border-radius: 49px;
-    display: flex;
-    align-items: center;
-} */
+
 
 .filter_item select {
     width: max-content;

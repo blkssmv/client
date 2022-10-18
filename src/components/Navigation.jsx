@@ -11,30 +11,47 @@ const Navigation = ({ isHaveAccess }) => {
   return (
     <>
       <ul className={s.nav}>
-        <NavLink to="/" className={s.logo_icon}>
-          <span className={s.logo_img}>
-            <img src={blue_icon} alt="" />
-          </span>
-          <span className={s.logo_text}>VBUS</span>
-        </NavLink>
         <li
           onClick={() => {
             setIsOpenNotificationDropDown(!isOpenNotificationDropDown);
           }}
           className={s.notifications}
         >
+          <NavLink to="/" className={s.logo_icon}>
+            <span className={s.logo_img}>
+              <img src={blue_icon} alt="" />
+            </span>
+            <span className={s.logo_text}>VBUS</span>
+          </NavLink>
           <span className={s.notifications_img}>
             <img src={notifications_icon} alt="notifications" />
           </span>
           <span className={s.notifications_text}>Уведомления</span>
         </li>
-        {isHaveAccess && (
-          <li className={s.isHaveAccess}>
-            <div className={s.isHaveAccess_icon}></div>
-            <div className={s.isHaveAccess_text}>Предоставлен доступ</div>
-          </li>
-        )}
-        <li className={s.logout}>Выйти</li>
+        <li className={s.logout}>
+          {isHaveAccess && (
+            <div className={s.isHaveAccess}>
+              <div className={s.isHaveAccess_icon}>
+                <svg
+                  width="8"
+                  height="8"
+                  viewBox="0 0 8 8"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle cx="4" cy="4" r="4" fill="#FF3B3B" />
+                </svg>
+              </div>
+              <div className={s.isHaveAccess_text}>Предоставлен доступ</div>
+              <div className={s.closeAccess}>
+                <button className={s.closeAccess_btn}>
+                  Закрыть доступ
+                </button>
+              </div>
+            </div>
+          )}
+          <div className={s.logout_text}>Выйти</div>
+        </li>
       </ul>
       {isOpenNotificationDropDown && <Notifications />}
     </>
