@@ -11,6 +11,8 @@ import CameraCard from "../components/CameraCard";
 import DevelopmentModal from "../components/modals/DevelopmentModal";
 import PluginsModal from "../components/modals/PluginsModal";
 import Dropdown from "../components/Dropdown";
+import DeletingCameraModal from "../components/modals/DeletingCameraModal";
+import EditingCameraModal from "../components/modals/EditingCameraModal";
 
 const CamerasPage = ({ cameras, service_packages, videoservers, isHaveAccess, setIsHaveAccess, developments }) => {
   const [isOpenCreatingCameraModal, setIsOpenCreatingCameraModal] =
@@ -20,6 +22,8 @@ const CamerasPage = ({ cameras, service_packages, videoservers, isHaveAccess, se
   const navigateToPrevPage = () => {
     navigate(-1);
   };
+  const [isOpenDeletingCameraModal, setIsOpenDeletingCameraModal] = useState(false)
+  const [isOpenEditingCameraModal, setIsOpenEditingCameraModal] = useState(false)
 
   const [isActiveClassLive, setIsActiveClassLive] = useState(true);
   const [isActiveClassDevelopment, setIsActiveClassDevelopment] =
@@ -310,7 +314,7 @@ const CamerasPage = ({ cameras, service_packages, videoservers, isHaveAccess, se
                         до {camera.cam_payment_status}
                       </td>
                       <td className={s.table_body + " " + s.table_edits}>
-                        <div className={s.table_edit}>
+                        <div onClick={() => setIsOpenEditingCameraModal(true)} className={s.table_edit}>
                           <svg
                             width="24"
                             height="24"
@@ -334,7 +338,7 @@ const CamerasPage = ({ cameras, service_packages, videoservers, isHaveAccess, se
                             />
                           </svg>
                         </div>
-                        <div className={s.table_delete}>
+                        <div onClick={() => setIsOpenDeletingCameraModal(true)} className={s.table_delete}>
                           <svg
                             width="24"
                             height="24"
@@ -363,6 +367,8 @@ const CamerasPage = ({ cameras, service_packages, videoservers, isHaveAccess, se
                   ))}
                 </tbody>
               </table>
+              {isOpenDeletingCameraModal && <DeletingCameraModal setIsOpenDeletingCameraModal={setIsOpenDeletingCameraModal} text={`Вы уверены что хотите удалить клиента "${cameras[0].name}"`}/>}
+              {isOpenEditingCameraModal && <EditingCameraModal setIsOpenEditingCameraModal={setIsOpenEditingCameraModal} title={"Редактирование камеры"}/>}
             </div>
           ) : (isListSorted && isActiveClassDevelopment) ? (<div>
             <div className={s.table}>

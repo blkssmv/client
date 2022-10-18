@@ -1,18 +1,18 @@
 
 import s from '../../styles/DeletingVideoServerModal.module.css'
 
-const DeletingVideoServerModal = ({ setIsOpenDeletingVideoServerModal, text }) => {
+const DeletingCameraModal = ({ setIsOpenDeletingCameraModal, text }) => {
   return (
     <>
       <div
         className={s.darkBG}
-        onClick={() => setIsOpenDeletingVideoServerModal(false)}
+        onClick={() => setIsOpenDeletingCameraModal(false)}
       />
       <div className={s.centered}>
         <div className={s.modal}>
           <button
             className={s.closeBtn}
-            onClick={() => setIsOpenDeletingVideoServerModal(false)}
+            onClick={() => setIsOpenDeletingCameraModal(false)}
           >
             <svg
               width="24"
@@ -40,10 +40,10 @@ const DeletingVideoServerModal = ({ setIsOpenDeletingVideoServerModal, text }) =
           <div className={s.modalContent}>
             <div className={s.modalText}>{text}</div>
             <div className={s.modalActionsDeleting}>
-              <button className={s.cancelButton} onClick={() => setIsOpenDeletingVideoServerModal(false)}>
+              <button className={s.cancelButton} onClick={() => setIsOpenDeletingCameraModal(false)}>
                 Отмена
               </button>
-              <button className={s.deletingButton} onClick={() => setIsOpenDeletingVideoServerModal(false)}>
+              <button className={s.deletingButton} onClick={() => setIsOpenDeletingCameraModal(false)}>
                 Удалить
               </button>
             </div>
@@ -53,4 +53,4 @@ const DeletingVideoServerModal = ({ setIsOpenDeletingVideoServerModal, text }) =
     </>
   );
 };
-export default DeletingVideoServerModal;
+export default DeletingCameraModal
