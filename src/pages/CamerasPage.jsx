@@ -419,6 +419,20 @@ const CamerasPage = ({ cameras, service_packages, videoservers, isHaveAccess, se
                     : s.window_video_threeColumn
                 }
               >
+                <div className={isCurrentColumnWindowSort === 2
+                    ? s.window_videoInfo_twoColumn
+                    : s.window_videoInfo_threeColumn
+                }>
+                  <div className={s.videoInfo_title}>Камера №3</div>
+                  <div className={s.videoInfo_body}>
+                    <div className={s.videoInfo_item}>
+                      <span>Видеосервер: </span>видеосервер 5
+                    </div>
+                    <div className={s.videoInfo_item}>
+                      <span>Плагины: </span>Face detection
+                    </div>
+                  </div>
+                </div>
                 <video src={video_test} />
               </div>
               <div
@@ -428,6 +442,20 @@ const CamerasPage = ({ cameras, service_packages, videoservers, isHaveAccess, se
                     : s.window_video_threeColumn
                 }
               >
+                <div className={isCurrentColumnWindowSort === 2
+                    ? s.window_videoInfo_twoColumn
+                    : s.window_videoInfo_threeColumn
+                }>
+                  <div className={s.videoInfo_title}>Камера №3</div>
+                  <div className={s.videoInfo_body}>
+                    <div className={s.videoInfo_item}>
+                      <span>Видеосервер: </span>видеосервер 5
+                    </div>
+                    <div className={s.videoInfo_item}>
+                      <span>Плагины: </span>Face detection
+                    </div>
+                  </div>
+                </div>
                 <video src={video_test} />
               </div>
               <div
@@ -437,6 +465,20 @@ const CamerasPage = ({ cameras, service_packages, videoservers, isHaveAccess, se
                     : s.window_video_threeColumn
                 }
               >
+                <div className={isCurrentColumnWindowSort === 2
+                    ? s.window_videoInfo_twoColumn
+                    : s.window_videoInfo_threeColumn
+                }>
+                  <div className={s.videoInfo_title}>Камера №3</div>
+                  <div className={s.videoInfo_body}>
+                    <div className={s.videoInfo_item}>
+                      <span>Видеосервер: </span>видеосервер 5
+                    </div>
+                    <div className={s.videoInfo_item}>
+                      <span>Плагины: </span>Face detection
+                    </div>
+                  </div>
+                </div>
                 <video src={video_test} />
               </div>
               <div
@@ -446,15 +488,20 @@ const CamerasPage = ({ cameras, service_packages, videoservers, isHaveAccess, se
                     : s.window_video_threeColumn
                 }
               >
-                <video autoPlay={true} src={video_test} />
-              </div>
-              <div
-                className={
-                  isCurrentColumnWindowSort === 2
-                    ? s.window_video_twoColumn
-                    : s.window_video_threeColumn
-                }
-              >
+                <div className={isCurrentColumnWindowSort === 2
+                    ? s.window_videoInfo_twoColumn
+                    : s.window_videoInfo_threeColumn
+                }>
+                  <div className={s.videoInfo_title}>Камера №3</div>
+                  <div className={s.videoInfo_body}>
+                    <div className={s.videoInfo_item}>
+                      <span>Видеосервер: </span>видеосервер 5
+                    </div>
+                    <div className={s.videoInfo_item}>
+                      <span>Плагины: </span>Face detection
+                    </div>
+                  </div>
+                </div>
                 <video src={video_test} />
               </div>
               <div
@@ -464,6 +511,43 @@ const CamerasPage = ({ cameras, service_packages, videoservers, isHaveAccess, se
                     : s.window_video_threeColumn
                 }
               >
+                <div className={isCurrentColumnWindowSort === 2
+                    ? s.window_videoInfo_twoColumn
+                    : s.window_videoInfo_threeColumn
+                }>
+                  <div className={s.videoInfo_title}>Камера №3</div>
+                  <div className={s.videoInfo_body}>
+                    <div className={s.videoInfo_item}>
+                      <span>Видеосервер: </span>видеосервер 5
+                    </div>
+                    <div className={s.videoInfo_item}>
+                      <span>Плагины: </span>Face detection
+                    </div>
+                  </div>
+                </div>
+                <video src={video_test} />
+              </div>
+              <div
+                className={
+                  isCurrentColumnWindowSort === 2
+                    ? s.window_video_twoColumn
+                    : s.window_video_threeColumn
+                }
+              >
+                <div className={isCurrentColumnWindowSort === 2
+                    ? s.window_videoInfo_twoColumn
+                    : s.window_videoInfo_threeColumn
+                }>
+                  <div className={s.videoInfo_title}>Камера №3</div>
+                  <div className={s.videoInfo_body}>
+                    <div className={s.videoInfo_item}>
+                      <span>Видеосервер: </span>видеосервер 5
+                    </div>
+                    <div className={s.videoInfo_item}>
+                      <span>Плагины: </span>Face detection
+                    </div>
+                  </div>
+                </div>
                 <video src={video_test} />
               </div>
             </div>
