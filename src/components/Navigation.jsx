@@ -3,9 +3,9 @@ import s from "../styles/Navigation.module.css";
 import blue_icon from "../layouts/icons/blue_logo.svg";
 import notifications_icon from "../layouts/icons/notifications_icon.svg";
 import { NavLink } from "react-router-dom";
-// import NotificationDropDown from "./NotificationDropDown";
+import Notifications from "./Notifications";
 
-const Navigation = ({isHaveAccess}) => {
+const Navigation = ({ isHaveAccess }) => {
   const [isOpenNotificationDropDown, setIsOpenNotificationDropDown] =
     useState(false);
   return (
@@ -28,15 +28,15 @@ const Navigation = ({isHaveAccess}) => {
           </span>
           <span className={s.notifications_text}>Уведомления</span>
         </li>
-        {isHaveAccess && <li className={s.isHaveAccess}>
-          <div className={s.isHaveAccess_icon}>
-            
-          </div>
-          <div className={s.isHaveAccess_text}>Предоставлен доступ</div>
-          </li>}
+        {isHaveAccess && (
+          <li className={s.isHaveAccess}>
+            <div className={s.isHaveAccess_icon}></div>
+            <div className={s.isHaveAccess_text}>Предоставлен доступ</div>
+          </li>
+        )}
         <li className={s.logout}>Выйти</li>
       </ul>
-      {/* {isOpenNotificationDropDown && <NotificationDropDown />} */}
+      {isOpenNotificationDropDown && <Notifications />}
     </>
   );
 };

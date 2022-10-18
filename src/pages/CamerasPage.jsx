@@ -10,8 +10,9 @@ import NotificationAfterModal from "../components/NotificationAfterModal";
 import CameraCard from "../components/CameraCard";
 import DevelopmentModal from "../components/modals/DevelopmentModal";
 import PluginsModal from "../components/modals/PluginsModal";
+import Dropdown from "../components/Dropdown";
 
-const CamerasPage = ({ cameras, service_packages, videoservers, isHaveAccess, setIsHaveAccess }) => {
+const CamerasPage = ({ cameras, service_packages, videoservers, isHaveAccess, setIsHaveAccess, developments }) => {
   const [isOpenCreatingCameraModal, setIsOpenCreatingCameraModal] =
     useState(false);
 
@@ -58,6 +59,11 @@ const CamerasPage = ({ cameras, service_packages, videoservers, isHaveAccess, se
 
   const [isOpenPluginsModal, setIsOpenPluginsModal] = useState(true)
 
+  const [selectedPlugin, setSelectedPlugin] = useState('Плагин')
+  const [selectedCamera, setSelectedCamera] = useState('Камера')
+  const [selectedDate, setSelectedDate] = useState('Дата')
+  const [selectedTime, setSelectedTime] = useState('Время')
+  const [selectedType, setSelectedType] = useState('Тип')
 
   return (
     <>
@@ -165,48 +171,19 @@ const CamerasPage = ({ cameras, service_packages, videoservers, isHaveAccess, se
             ) : (
               <ul className={s.filter}>
                 <li className={s.filter_item}>
-                  <select name="plugin" id="" defaultValue="Плагин">
-                    <option value="Плагин" disabled>Плагин</option>
-                    {videoservers[0].available_plugins.map((plugin, index) => (
-                      <option key={index} value={plugin}>
-                        {plugin}
-                      </option>
-                    ))}
-                  </select>
+                  <Dropdown selected={selectedPlugin} setSelected={setSelectedPlugin} options={developments[0].plugins}/>
                 </li>
                 <li className={s.filter_item}>
-                  <select name="camera" id="" defaultValue="Камера">
-                  <option value="Камера" disabled>Камера</option>
-                    {videoservers[0].cameras.map((camera) => (
-                      <option key={camera.id} value={camera.name}>
-                        {camera.name}
-                      </option>
-                    ))}
-                  </select>
+                  <Dropdown selected={selectedCamera} setSelected={setSelectedCamera} options={developments[0].camera}/>
                 </li>
                 <li className={s.filter_item}>
-                  <select name="day" id="" defaultValue="Дата">
-                    <option value="Дата" disabled>Дата</option>
-                    <option value="12.01">12.01</option>
-                    <option value="13.01">13.01</option>
-                    <option value="14.01">14.01</option>
-                  </select>
+                  <Dropdown selected={selectedDate} setSelected={setSelectedDate} options={developments[0].date}/>
                 </li>
                 <li className={s.filter_item}>
-                  <select name="time" id="" defaultValue="Время">
-                    <option value="Время" disabled>Время</option>
-                    <option value="10:30">10:30</option>
-                    <option value="11:30">11:30</option>
-                    <option value="12:30">12:30</option>
-                  </select>
+                  <Dropdown selected={selectedTime} setSelected={setSelectedTime} options={developments[0].time}/>
                 </li>
                 <li className={s.filter_item}>
-                  <select name="type" id="" defaultValue="Тип">
-                    <option value="Тип" disabled>Тип</option>
-                    <option value="Бро 1">Бро 1</option>
-                    <option value="Бро 2">Бро 2</option>
-                    <option value="Бро 3">Бро 3</option>
-                  </select>
+                  <Dropdown selected={selectedType} setSelected={setSelectedType} options={developments[0].plugins}/>
                 </li>
               </ul>
             )}
@@ -401,21 +378,21 @@ const CamerasPage = ({ cameras, service_packages, videoservers, isHaveAccess, se
                   </tr>
                 </thead>
                 <tbody style={{ padding: "20px" }}>
-                  {cameras.map((camera) => (
-                    <tr key={camera.id}>
-                      <td className={s.table_body}>{camera.id}</td>
+                  {developments.map((development) => (
+                    <tr key={development.id}>
+                      <td className={s.table_body}>{development.id}</td>
                       <td className={s.table_body + " " + s.table_body_name}>
-                        {camera.name}
+                        {development.name}
                       </td>
-                      <td className={s.table_body}>20.03.2021</td>
+                      <td className={s.table_body}>{development.camera}</td>
                       <td className={s.table_body}>
-                        {camera.cam_available_plugins.join()}
-                      </td>
-                      <td className={s.table_body}>
-                        {camera.cam_active_plugins.join()}
+                        {development.plugins.join()}
                       </td>
                       <td className={s.table_body}>
-                      2 месяца
+                        {development.date.join()}
+                      </td>
+                      <td className={s.table_body}>
+                      {development.time}
                       </td>
                       
                       
@@ -502,8 +479,8 @@ const CamerasPage = ({ cameras, service_packages, videoservers, isHaveAccess, se
         </div>
       
         {isListSorted && (
-        <div className={s.videoServer_pageWrapper}>
-          <div className={s.videoServer_prevPage}>
+        <div className={s.camerasPage_pageWrapper}>
+          <div className={s.camerasPage_prevPage}>
             <svg
               width="29"
               height="30"
@@ -527,10 +504,10 @@ const CamerasPage = ({ cameras, service_packages, videoservers, isHaveAccess, se
               />
             </svg>
           </div>
-          <div className={s.videoServer_pageItem}>1</div>
-          <div className={s.videoServer_pageItem}>2</div>
-          <div className={s.videoServer_pageItem}>3</div>
-          <div className={s.videoServer_nextPage}>
+          <div className={s.camerasPage_pageItem}>1</div>
+          <div className={s.camerasPage_pageItem}>2</div>
+          <div className={s.camerasPage_pageItem}>3</div>
+          <div className={s.camerasPage_nextPage}>
             <svg
               width="29"
               height="30"

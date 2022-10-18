@@ -45,6 +45,32 @@ function App() {
           cam_payment_status: Date.now()
         },
       ],
+      developments: [
+        {
+          id: 1,
+          name: 'Задний двор',
+          camera: ['20.03.2021', '20.03.2021', '20.03.2021'],
+          plugins: ['FR', 'FC', 'LPR', 'Smoking'],
+          date: ['FR', 'FC', 'LPR', 'Smoking'],
+          time: ['17:29', '17:29', '17:29']
+        },
+        {
+          id: 2,
+          name: 'Вход в магазин',
+          camera: ['20.03.2021', '20.03.2021', '20.03.2021'],
+          plugins: ['FR', 'FC', 'LPR', 'Smoking'],
+          date: ['FR', 'FC', 'LPR', 'Smoking'],
+          time: ['17:29', '17:29', '17:29']
+        },
+        {
+          id: 3,
+          name: 'Холодильники',
+          camera: ['20.03.2021', '20.03.2021', '20.03.2021'],
+          plugins: ['FR', 'FC', 'LPR', 'Smoking'],
+          date: ['FR', 'FC', 'LPR', 'Smoking'],
+          time: ['17:29', '17:29', '17:29']
+        },
+      ]
     },
     {
       id: 2,
@@ -79,6 +105,32 @@ function App() {
           cam_active_plugins: ['sss', 'ccss', 'dddd'],
           service_packages: "2 месяца",
           cam_payment_status: Date.now()
+        },
+      ],
+      developments: [
+        {
+          id: 1,
+          name: 'Задний двор',
+          camera: '20.03.2021',
+          plugins: ['FR', 'FC', 'LPR', 'Smoking'],
+          date: ['FR', 'FC', 'LPR', 'Smoking'],
+          time: Date.now()
+        },
+        {
+          id: 2,
+          name: 'Вход в магазин',
+          camera: '20.03.2021',
+          plugins: ['FR', 'FC', 'LPR', 'Smoking'],
+          date: ['FR', 'FC', 'LPR', 'Smoking'],
+          time: Date.now()
+        },
+        {
+          id: 3,
+          name: 'Холодильники',
+          camera: '20.03.2021',
+          plugins: ['FR', 'FC', 'LPR', 'Smoking'],
+          date: ['FR', 'FC', 'LPR', 'Smoking'],
+          time: Date.now()
         },
       ],
       service_packages: "2 месяца",
@@ -121,6 +173,32 @@ function App() {
           cam_payment_status: Date.now()
         },
       ],
+      developments: [
+        {
+          id: 1,
+          name: 'Задний двор',
+          camera: '20.03.2021',
+          plugins: ['FR', 'FC', 'LPR', 'Smoking'],
+          date: ['FR', 'FC', 'LPR', 'Smoking'],
+          time: Date.now()
+        },
+        {
+          id: 2,
+          name: 'Вход в магазин',
+          camera: '20.03.2021',
+          plugins: ['FR', 'FC', 'LPR', 'Smoking'],
+          date: ['FR', 'FC', 'LPR', 'Smoking'],
+          time: Date.now()
+        },
+        {
+          id: 3,
+          name: 'Холодильники',
+          camera: '20.03.2021',
+          plugins: ['FR', 'FC', 'LPR', 'Smoking'],
+          date: ['FR', 'FC', 'LPR', 'Smoking'],
+          time: Date.now()
+        },
+      ]
     },
   ]
 
@@ -151,7 +229,7 @@ function App() {
         <Routes>
           <Route path='/authorization' element={<Authorization/>}/>
           <Route path='/videoservers' element={<VideoServersPage videoservers={videoservers}/>}/>
-          <Route path='/cameras' element={<CamerasPage isHaveAccess={isHaveAccess} setIsHaveAccess={setIsHaveAccess} cameras={videoservers[0].cameras} service_packages={service_packages} videoservers={videoservers}/>}/>
+          <Route path='/cameras' element={<CamerasPage developments={videoservers[0].developments} isHaveAccess={isHaveAccess} setIsHaveAccess={setIsHaveAccess} cameras={videoservers[0].cameras} service_packages={service_packages} videoservers={videoservers}/>}/>
           <Route path='/cameras/1' element={<CameraPage videoservers={videoservers} camera={videoservers[0].cameras[0]}/>}/>
         </Routes>
     </div>

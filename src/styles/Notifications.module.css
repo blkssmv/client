@@ -1,0 +1,119 @@
+.notificationDropDown {
+    position: absolute;
+    background: #FFFFFF;
+    border-radius: 6px;
+    z-index: 50;
+    width: 526px;
+    max-height: 501px;
+    left: 19%;
+}
+
+.notificationDropDown_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #F2F2F5;
+    padding: 16px 20px 15px;
+}
+
+.notificationDropDown_header_title {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 23px;
+    color: #232325;
+}
+
+.notificationDropDown_header_new {
+    background: #F4F7FE;
+    border-radius: 17px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 20px;
+    text-align: center;
+    color: #3377FF;
+    padding: 1px 9px;
+}
+
+.notificationDropDown_list_item {
+    display: flex;
+    align-items: center;
+    padding: 16px 20px;
+    border-bottom: 1px solid #F2F2F5;
+}
+
+.notificationDropDown_item_icon {
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #F4F7FE;
+    border-radius: 50%;
+    padding: 12px;
+    margin-right: 12px;
+}
+
+.notificationDropDown_item_content {
+    flex: auto;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    color: #232325;
+}
+.notificationDropDown_item_text{
+    margin-bottom: 20px;
+}
+
+.notificationDropDown_item_when {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    text-align: right;
+    color: #8F90A6;
+}
+
+.notificationDropDown_item_buttonRed button {
+    background: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 14px;
+    text-align: center;
+    border: 1px solid #FF3B3B;
+    padding: 8px;
+    border-radius: 5px;
+    color: #FF3B3B;
+    cursor: pointer;
+    transition: all .2s;
+}
+.notificationDropDown_item_buttonRed button:hover {
+    background: #FF3B3B;
+    color: #FFFFFF;
+}
+.notificationDropDown_item_buttonGreen button{
+    background: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 14px;
+    text-align: center;
+    border: 1px solid #06C270;
+    padding: 8px;
+    border-radius: 5px;
+    color: #06C270;
+    cursor: pointer;
+    transition: all .2s;
+}
+.notificationDropDown_item_buttonGreen button:hover{
+    background: #06C270;
+    color: #FFFFFF;
+}

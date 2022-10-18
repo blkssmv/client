@@ -1,5 +1,6 @@
-import s from "../../styles/DevelopmentModal.module.css";
+import s from "../../styles/PluginsModal.module.css";
 import test_video from "../../layouts/videos/test_video.mp4";
+import MyButton from "../MyButton";
 
 const PluginsModal = ({ setIsOpenPluginsModal, title, videoserver }) => {
   return (
@@ -40,65 +41,69 @@ const PluginsModal = ({ setIsOpenPluginsModal, title, videoserver }) => {
               <div className={s.modalBody_video}>
                 <video src={test_video} />
               </div>
-              <div className={s.modalBody_switchDevelopment}>
-                <div className={s.modalBody_switcher}>
-                  <div className={s.modalBody_switcher_icon}>
-                    <svg
-                      width="25"
-                      height="25"
-                      viewBox="0 0 25 25"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M15.2559 6.21436L9.17055 12.1278L15.084 18.2131"
-                        stroke="#3377FF"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
+              <div className={s.modalBody_main}>
+              <ul className={s.modalBody_plugins}>
+                <li className={s.modalBody_pluginsItem}>
+                  <div className={s.modalBody_pluginsItem_title}>
+                    <div className={s.pluginsItem_icon}>
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M9 18L15 12L9 6"
+                          stroke="#232325"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </div>
+                    <div className={s.pluginsItem_text}>Face detection</div>
                   </div>
-                  <div className={s.modalBody_switcher_text}>
-                    Предыдущее событие
+
+                  <label className={s.pluginsItem_check}>
+                    <input type="checkbox" />
+                    <span className={s.slider}></span>
+                  </label>
+                </li>
+                <li className={s.modalBody_pluginsItem}>
+                  <div className={s.modalBody_pluginsItem_title}>
+                    <div className={s.pluginsItem_icon}>
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M9 18L15 12L9 6"
+                          stroke="#232325"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </div>
+                    <div className={s.pluginsItem_text}>Face detection</div>
                   </div>
-                </div>
-                <div className={s.modalBody_switcher}>
-                  <div className={s.modalBody_switcher_text}>
-                    Следующее событие
-                  </div>
-                  <div className={s.modalBody_switcher_icon}>
-                    <svg
-                      width="25"
-                      height="25"
-                      viewBox="0 0 25 25"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M15.2559 6.21436L9.17055 12.1278L15.084 18.2131"
-                        stroke="#3377FF"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </div>
-                </div>
+                  <label className={s.pluginsItem_check}>
+                    <input type="checkbox" />
+                    <span className={s.slider}></span>
+                  </label>
+                </li>
+              </ul>
+              <div className={s.modalBody_actions}>
+                <button className={s.pluginsModal_cancel}>Отмена</button>
+                <MyButton>Создать зону</MyButton>
+              </div>
               </div>
 
-              <div className={s.modalBody_info}>
-                <div className={s.modalBody_title}>person</div>
-                <div className={s.modalBody_information}>
-                  <div className={s.modalBody_information_item}>
-                    <span>Время: </span>12.01.2021 17:09
-                  </div>
-                  <div className={s.modalBody_information_item}>
-                    <span>Камера: </span>Вход в магазин и еще длинное название
-                  </div>
-                
-                </div>
-              </div>
+              
             </div>
           </div>
         </div>
