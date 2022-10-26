@@ -44,9 +44,9 @@ const Navigation = ({ isHaveAccess }) => {
               </div>
               <div className={s.isHaveAccess_text}>Предоставлен доступ</div>
               <div className={s.closeAccess}>
-                <button className={s.closeAccess_btn}>
-                  Закрыть доступ
-                </button>
+                <div className={s.closeAccess_wrapper}>
+                  <button className={s.closeAccess_btn}>Закрыть доступ</button>
+                </div>
               </div>
             </div>
           )}

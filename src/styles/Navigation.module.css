@@ -79,13 +79,24 @@
     display: none;
     background: #FFFFFF;
     border-radius: 8px;
-    top: 40px;
+    top: 55px;
     left: 25px;
     z-index: 5;
     align-items: center;
     justify-content: center;
     box-shadow: 0px 4px 20px rgba(76, 78, 81, 0.1), 0px 0px 1px rgba(9, 30, 66, 0.31);
 }
+.closeAccess::after {
+    content: " ";
+    position: absolute;
+    right: 60px;
+    top: -15px;
+    border-top: none;
+    border-right: 15px solid transparent;
+    border-left: 15px solid transparent;
+    border-bottom: 15px solid #FFFFFF;
+}
+
 .closeAccess_btn{
     font-family: 'DM Sans', sans-serif;
     font-weight: 700;
